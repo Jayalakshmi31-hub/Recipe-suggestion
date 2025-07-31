@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6c1e6 40%, #b39ddb 80%, #6a1b9a 100%);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #6a1b9a;
+            margin-bottom: 36px;
+            letter-spacing: 1px;
+            font-size: 2.2em;
+            text-shadow: 0 2px 8px #e1bee7;
+        }
+        .section-list {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(106,27,154,0.08);
+            max-width: 400px;
+            margin: 0 auto 40px auto;
+            padding: 30px 0 18px 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin: 18px 0;
+        }
+        a.section-link {
+            display: block;
+            background: #f8f6ff;
+            color: #6a1b9a;
+            text-decoration: none;
+            font-size: 1.18em;
+            padding: 14px 0;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(106,27,154,0.07);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        a.section-link:hover {
+            background: #ede7f6;
+            color: #4a148c;
+            box-shadow: 0 2px 12px rgba(106,27,154,0.13);
+        }
+        a.back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #4a148c;
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px rgba(106,27,154,0.10);
+        }
+        a.back-link:hover {
+            background: linear-gradient(90deg, #7c43bd 60%, #ede7f6 100%);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipe Sections</h1>
+    <div class="section-list">
+        <ul>
+        {% for section in recipes.keys() %}
+            <li><a class="section-link" href="{{ url_for('show_section', section_name=section) }}">{{ section }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <a class="back-link" href="/">⬅ Back</a>
+</body>
+</html>

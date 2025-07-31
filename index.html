@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Suggestion App</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            /* Lavender, lilac, and royal purple gradient background */
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6c1e6 40%, #b39ddb 80%, #6a1b9a 100%);
+            position: relative;
+        }
+        /* Decorative food icons floating */
+        .food-icon {
+            position: absolute;
+            font-size: 2.5em;
+            opacity: 0.13;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .icon1 { top: 8%; left: 10%; transform: rotate(-12deg);}
+        .icon2 { top: 18%; right: 12%; transform: rotate(8deg);}
+        .icon3 { bottom: 12%; left: 18%; transform: rotate(18deg);}
+        .icon4 { bottom: 10%; right: 8%; transform: rotate(-8deg);}
+        .icon5 { top: 50%; left: 48%; font-size: 3.5em; opacity: 0.09;}
+        .container {
+            margin-top: 80px;
+            box-shadow: 0 8px 32px rgba(106,27,154,0.16);
+            background: rgba(255,255,255,0.96);
+            border-radius: 22px;
+            padding: 48px 0 38px 0;
+            max-width: 520px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #6a1b9a;
+            margin-bottom: 36px;
+            text-shadow: 0 2px 8px #e1bee7;
+            font-size: 2.3em;
+        }
+        .btn-custom {
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            color: #4a148c;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.25em;
+            font-weight: 600;
+            padding: 18px 0;
+            box-shadow: 0 2px 12px rgba(106,27,154,0.13);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+        }
+        .btn-custom:hover, .btn-custom:focus {
+            background: linear-gradient(90deg, #7c43bd 60%, #ede7f6 100%);
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(106,27,154,0.18);
+            transform: scale(1.04) translateY(-2px);
+        }
+        .d-grid {
+            gap: 26px !important;
+        }
+        @media (max-width: 600px) {
+            .container {
+                max-width: 98vw;
+                padding: 20px 0 15px 0;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            .btn-custom {
+                font-size: 1em;
+                padding: 12px 0;
+            }
+            .food-icon { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative food icons -->
+    <span class="food-icon icon1">🍕</span>
+    <span class="food-icon icon2">🥗</span>
+    <span class="food-icon icon3">🍰</span>
+    <span class="food-icon icon4">🍜</span>
+    <span class="food-icon icon5">🍳</span>
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">🍽️ Recipe Suggestion App</h1>
+        <div class="d-grid gap-3 col-6 mx-auto">
+            <a href="/recipes" class="btn btn-custom btn-lg">📋 View All Recipes</a>
+            <a href="/ingredients" class="btn btn-custom btn-lg">🥕 Search Recipe Ingredients</a>
+            <a href="/process" class="btn btn-custom btn-lg">🍳 Search Recipe Process</a>
+        </div>
+    </div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

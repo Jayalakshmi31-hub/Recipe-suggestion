@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Recipe Ingredients</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6c1e6 40%, #b39ddb 80%, #6a1b9a 100%);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 60px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(106,27,154,0.10);
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 32px 0 24px 0;
+        }
+        h2 {
+            color: #6a1b9a;
+            margin-bottom: 18px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: 1px solid #b39ddb;
+            margin-bottom: 16px;
+        }
+        button {
+            padding: 10px 18px;
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            color: #4a148c;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #7c43bd 60%, #ede7f6 100%);
+            color: #fff;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 5px 14px;
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            color: #4a148c;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            box-shadow: 0 2px 8px rgba(106,27,154,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+        }
+        .back-btn:hover, .back-btn:focus {
+            background: linear-gradient(90deg, #7c43bd 60%, #ede7f6 100%);
+            color: #fff;
+            transform: scale(1.04) translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search Recipe Ingredients</h2>
+        <form method="get" action="">
+            <input type="text" name="ingredient" placeholder="ENTER RECIPE NAME..." required>
+            <br>
+            <button type="submit">Search</button>
+        </form>
+        {% if ingredients %}
+            <h3>Ingredients for {{ recipe_name.title() }}:</h3>
+            <ul style="list-style:none; padding:0;">
+                {% for ing in ingredients %}
+                   <li>{{ ing.title() }}</li>
+                {% endfor %}
+            </ul>
+        {% elif recipe_name %}
+            <p style="color:red;">Recipe not found.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="back-btn">⬅ Back</a>
+    </div>
+</body>
+</html>

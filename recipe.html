@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ recipe_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6c1e6 40%, #b39ddb 80%, #6a1b9a 100%);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(106,27,154,0.10);
+            max-width: 420px;
+            margin: 60px auto 0 auto;
+            padding: 32px 0 24px 0;
+        }
+        h2 {
+            color: #6a1b9a;
+            margin-bottom: 18px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        .process-title {
+            color: #7c43bd;
+            margin-top: 24px;
+        }
+        .process-text {
+            color: #333;
+            font-size: 1.05em;
+            margin: 12px 0 0 0;
+            padding: 0 18px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            color: #4a148c;
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            padding: 8px 18px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px rgba(106,27,154,0.10);
+        }
+        a:hover {
+            background: linear-gradient(90deg, #7c43bd 60%, #ede7f6 100%);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>{{ recipe_name }}</h2>
+        <h4>Ingredients:</h4>
+        <ul>
+            {% for ing in ingredients %}
+                <li>{{ ing.title() }}</li>
+            {% endfor %}
+        </ul>
+        <h4 class="process-title">Making Process:</h4>
+        <div class="process-text">
+            <ul>
+                {% for step in process %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="{{ url_for('show_section', section_name=section) }}">⬅ Back to {{ section.title() }}</a>
+    </div>
+</body>
+</html>

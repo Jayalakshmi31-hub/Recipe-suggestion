@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ section_name }} Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6c1e6 40%, #b39ddb 80%, #6a1b9a 100%);
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            color: #4a148c;
+            padding: 16px;
+            margin: 0 0 20px 0;
+            text-align: center;
+            border-radius: 0 0 18px 18px;
+            font-size: 2em;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #e1bee7;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 10px;
+        }
+        .recipe-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(106,27,154,0.08);
+            padding: 22px 10px;
+            text-align: center;
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .recipe-card a {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.08em;
+            letter-spacing: 0.5px;
+            display: block;
+            padding: 8px 0;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .recipe-card a:hover {
+            background: #ede7f6;
+            color: #4a148c;
+        }
+        .back-link {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0 auto;
+            text-decoration: none;
+            color: #4a148c;
+            font-weight: bold;
+            padding: 10px 22px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #b39ddb 60%, #e1bee7 100%);
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px rgba(106,27,154,0.10);
+        }
+        .back-link:hover {
+            background: linear-gradient(90deg, #7c43bd 60%, #ede7f6 100%);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ section_name }} Recipes</h2>
+    <div class="grid-container">
+        {% for name in items.keys() %}
+            <div class="recipe-card">
+                <a href="{{ url_for('show_recipe', section=section_name, recipe_name=name) }}">
+                    {{ name.title() }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <a class="back-link" href="{{ url_for('list_recipes') }}">⬅ Back to Sections</a>
+</body>
+</html>
